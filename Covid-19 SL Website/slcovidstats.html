@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <title>Sri Lankan Stats Dashboard</title>
+
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<!-- Boxicons -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+<!-- fontawesome Font Link -->
+
+<script src="https://kit.fontawesome.com/eebbe9b9d9.js" crossorigin="anonymous"></script>
+
+<!-- CSS Link -->
+
+<link rel="stylesheet" href="stat.css">
+ 
+  </head>
+
+   
+    
+ 
+ 
+<body>	
+
+<div class="container">
+	<h2>Covid-19 Situation in <span id="count_name">Country Name</span><img alt="" id="Count_flag"></h2>
+	<div class="board">
+			<div class="cont b1">
+				<div class="sum-icon"> 
+				<i class="fa-solid fa-chart-line"></i>
+				</div>
+					<h5>Total Cases</h5> 
+				<span id="totCases">0000</span>
+		</div>
+		<div class="cont b2">
+			<div class="sum-icon">
+			<i class="fas fa-dizzy"></i>
+		</div>
+			 	<h5>Total Deaths</h5>
+				<span id="totDeaths">0000</span>
+		</div>
+		<div class="cont b3">
+			<div class="sum-icon">
+			<i class="fas fa-smile-beam"></i> 
+		</div>
+			 <h5>Total Recovered</h5>
+				<span id="totRecovered">0000</span>
+		</div>
+				<div class="cont b4">
+					 <div class="sum-icon">
+					<i class="fas fa-head-side-virus"></i>
+				</div>
+			 <h5>Cases Today</h5>
+				<span id="casesToday">0000</span>
+		</div>
+		<div class="cont b5">
+			<div class="sum-icon">
+			<i class="fas fa-procedures"></i>
+		</div>
+			   <h5>Deaths Today</h5>
+			 <span id="deathsToday">0000</span>
+		</div>
+		<div class="cont b6">
+			<div class="sum-icon">
+			 <i class="fas fa-heartbeat"></i>
+			</div>
+				<h5>Recovered Today</h5>
+			<span id="recoveredToday">0000</span>
+		</div>
+			<div class="cont b7">
+				<div class="sum-icon">
+			 <i class="fas fa-hospital"></i>
+			</div>
+			<h5>Active Cases</h5>
+				<span id="activeCases">0000</span>
+		</div>
+		<div class="cont b8">
+			<div class="sum-icon">
+			<i class="fas fa-ambulance"></i>
+		</div>
+			 <h5>Critical Cases</h5>
+				<span id="criticalCases">0000</span>
+		</div>
+		<div class="cont b9">
+			<div class="sum-icon">
+			<i class="fas fa-stethoscope"></i>
+		</div>
+			<h5>Total Tests</h5>
+				<span id="totalTests">0000</span>
+		</div>
+			<div class="cont b10"> 
+				<div class="sum-icon">
+			<i class="fas fa-viruses"></i> 
+		</div>
+				 <h5>Cases per Million</h5>
+			 	<span id="casesPerMil">0000</span>
+		</div>
+		<div class="cont b11">
+			<div class="sum-icon">
+			<i class="fas fa-skull-crossbones"></i>
+		</div>
+				<h5>Deaths per Million</h5>
+				<span id="deathsPerMil">0000</span>
+		</div>
+		<div class="cont b12">  
+			<div class="sum-icon">
+			<i class="fas fa-temperature-high"></i>
+		</div>
+				<h5>Tests per Million</h5>
+				<span id="testsPerMil">0000</span>
+		</div>
+		</div>
+			
+		</div>
+		
+		
+		 
+ 
+
+ 
+    
+    <!-- JavaScript and JSON  -->
+    <script src="slcovidstats.js"></script>
+    <script src="slcovidstats.json"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+</html>

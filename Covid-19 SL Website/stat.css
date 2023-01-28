@@ -1,0 +1,211 @@
+body{
+	height: 100vh;
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fafbfd; 
+}
+
+ 
+
+.container {
+	z-index: 1;
+	width: 90%;
+	margin-top: 10rem;
+	background: #fafbfd;
+	border-radius: 24px;
+	padding: 2%;
+	
+
+}
+
+.board {
+	column-count: 4;
+	column-gap: 1rem;
+
+}
+
+.container h2 {
+	margin-top: 10rem;
+ 
+text-align: center;
+font-size: 4.5rem;
+color: #000000;
+line-height: 1.8;
+text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+}
+
+img#flag {
+	height: 40px;
+	width: 40px;
+}
+
+.home .information h2{
+    font-size: 4.5rem;
+    color:var(--black);
+    line-height: 1.8;
+    text-shadow: var(--text-shadow);
+}
+
+.cont {
+	width: 84%;
+	 align-items: center;
+	 text-align: center;
+	 background: #fff;
+	padding: 8%;
+	margin-bottom: 20px;
+	border-radius: 6px;
+	box-shadow:.5rem .5rem 0 rgba(22, 160, 133, .2);
+	border:.2rem solid #00acee;
+
+     
+}
+
+.cont h5 {
+font-size: 1rem;
+text-transform: uppercase;	
+}
+
+.cont span {
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 3px;
+    font-weight: 700;
+
+}
+
+.sum-icon {
+    --width: 70px;
+    width: var(--width);
+    height: var(--width);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+     
+    margin-left:  80px;
+}
+
+ 
+
+.cont i{
+	font-size: 2rem;
+}
+
+ 
+.cont.b1 .sum-icon{
+	 background-color: #bffabf;
+}
+
+.cont.b1 i{
+	color: green;
+}
+
+.cont.b2 .sum-icon{
+background-color: #e2e8f0;
+
+}
+ 
+.cont.b2 i{
+	color: #373c43;
+}
+
+.cont.b3 .sum-icon{
+ background-color:  #87cefa;
+}
+ 
+.cont.b3 i{
+	color: #00acee;
+}
+
+.cont.b4 .sum-icon{
+ background-color: #ffa0a0;
+}
+ 
+.cont.b4 i{
+	color: red;
+}
+
+.cont.b5 .sum-icon{
+ background-color: #ffff66;
+}
+ 
+.cont.b5 i{
+	color: #FFD700;
+}
+
+.cont.b6 .sum-icon{
+ background-color: #e88fe8;
+}
+ 
+.cont.b6 i{
+	color: #f82cf8;
+}
+
+.cont.b7 .sum-icon{
+ background-color:  #fa9757;
+}
+ 
+.cont.b7 i{
+	color:  #fc6c23;
+}
+
+.cont.b8 .sum-icon{
+ background-color: #cc8ad9;
+}
+ 
+.cont.b8 i{
+	color: #6b0361;
+}
+
+.cont.b9 .sum-icon{
+ background-color: #94fc63;
+}
+ 
+.cont.b9 i{
+	color:  #00c400;
+}
+
+.cont.b10 .sum-icon{
+ background-color: #4c4ccc;
+}
+ 
+.cont.b10 i{
+	color: #000099;
+}
+
+.cont.b11 .sum-icon{
+ background-color:  #996633;
+}
+ 
+.cont.b11 i{
+	color:  #663300;
+} 
+
+.cont.b12 .sum-icon{
+ background-color: #ff99cc;
+}
+ 
+.cont.b12 i{
+	color: #ff3399;
+}
+     
+
+/* Media Queries */
+@media screen and (max-width:768px){
+
+.board {
+	column-count: 2;
+}
+
+}
+    
+
+@media screen and (max-width:500px){
+
+.board {
+	column-count: 1;
+}
+
+}

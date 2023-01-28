@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Covid Global Statistics</title>
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<!-- Boxicons -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="frame.css">
+</head>
+
+
+<body class="loading">
+
+
+
+<!-- Main Content Starts-->
+<div class="information"> 
+    <div class="canister"> 
+
+<!-- Select Country Starts-->
+<div class="line"> 
+  <div class="col-3 col-md-6 col-sm-12">
+    <div class="box"> 
+      <div class="select-country" id="select-country"> 
+        <div class="select-country-toggle" id="select-country-toggle">
+          <span>Global</span>
+           <i class='bx bxs-chevron-down'></i>
+       </div>
+          <div class="select-country-list" id="select-country-list"> 
+            <input type="text" placeholder="Search...">
+          </div>
+       </div>
+     </div>
+   </div> 
+</div>
+<!-- Select Country Ends-->
+ 
+<!-- Covid Details Starts-->
+<div class="line"> 
+    <!-- Left Content -->
+   <div class="col-8 col-md-12 col-sm-12">
+      <div class="line"> 
+    <!-- Confirmed Counter Starts-->
+<div class="col-4 col-md-4 col-sm-12">
+    <div class="box box-float">
+        <div class="sum sum-confirmed">
+            <div class="sum-icon">
+                <i class="bx bxs-virus"></i>
+            </div>
+              <div class="sum-info">
+                <h5 id="total-confirmed">123,456,789</h5>
+                    <span>confirmed</span>
+                </div>
+             </div>
+        </div>
+    </div>
+    <!-- Confirmed Counter Ends-->
+
+    
+    <!-- Recovered Counter Starts-->
+<div class="col-4 col-md-4 col-sm-12">
+    <div class="box box-float">
+        <div class="sum sum-recovered">
+            <div class="sum-icon">
+                <i class="bx bxs-virus"></i>
+            </div>
+              <div class="sum-info">
+                 <h5 id="total-recovered">123,456,789</h5>
+                     <span>recovered</span>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Recovered Counter Ends-->
+
+    <!-- Deaths Counter Starts-->
+<div class="col-4 col-md-4 col-sm-12">
+    <div class="box box-float">
+        <div class="sum sum-deaths">
+            <div class="sum-icon">
+                <i class='bx bxs-virus-block'></i>
+            </div>
+            <div class="sum-info">
+                   <h5 id="total-deaths">123,456,789</h5>
+                     <span>deaths</span>
+             </div> 
+        </div>
+     </div>
+ </div>
+<!-- Deaths Counter Ends-->
+
+ 
+
+<!-- Global Chart Starts-->
+ <div class="col-12">
+    <div class="box">
+       <div class="box-head">
+             Global
+        </div>
+        <div class="box-figure">
+            <div id="global-chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Global Chart Ends-->
+      </div> 
+    </div>
+
+    <!-- Right Content Starts -->
+<div class="col-4 col-md-12 col-sm-12">
+
+    <!-- 30 days chart -->
+                    <div class="box" >
+                        <div class="box-head">
+                            last 30 days
+                        </div>
+                        <div class="box-figure">
+                            <div id="latest-chart"></div>
+                        </div>
+                    </div>
+    <!-- end 30 days chart -->
+
+<!-- Death Pie Chart Starts -->
+<div class="box">
+    <div class="box-head">
+             Global Death Rate 
+        </div>
+    <div class="box-figure">
+        <div id="death-pie-chart">
+        </div>
+    </div>
+</div>
+<!-- Death Pie Chart Ends -->
+<!-- Most Affected Countries Starts -->
+<div class="box">
+    <div class="box-head" >
+             Most Affected Countries
+        </div>
+          <div class="box-figure">
+            <table class="countries-table" id="countries-table" >
+     <thead>
+         <tr>
+           <th>
+            Country
+           </th> 
+            <th>Confirmed</th>
+            <th >New Confirmed</th>   
+            <th >Deaths</th> 
+            </tr>
+          </thead>
+          <tbody>
+                <tr >
+                   <td>test</td>
+                   <td>test</td>
+                   <td>test</td>
+                   <td>test</td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+<!-- Most Affected Countries Ends -->
+<!-- Left Content Ends -->
+
+ 
+
+</div>
+<!-- Right Content Ends -->
+</div>
+<!-- Covid Details Ends-->
+ </div>
+</div>
+
+<!-- Main Content Ends-->
+
+
+
+
+<!-- Loader Starts-->
+    <div class="loader">
+        <i class='bx bxs-virus bx-spin' style='color:#00acee' ></i>
+    </div>
+<!-- Loader Ends -->
+
+<!-- ApexCharts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<!-- JavaScript -->
+<script src="covidapi.js"></script>
+<script src="fetchapi.js"></script>
+<script src="app.js"></script>
+
+
+</body>
+</html>

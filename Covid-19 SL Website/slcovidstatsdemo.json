@@ -1,0 +1,32 @@
+{
+  "updated": 1647715873775,
+  "country": "Sri Lanka",
+  "countryInfo": {
+    "_id": 144,
+    "iso2": "LK",
+    "iso3": "LKA",
+    "lat": 7,
+    "long": 81,
+    "flag": "https://disease.sh/assets/img/flags/lk.png"
+  },
+  "cases": 657961,
+  "todayCases": 238,
+  "deaths": 16426,
+  "todayDeaths": 4,
+  "recovered": 624592,
+  "todayRecovered": 71,
+  "active": 16943,
+  "critical": 0,
+  "casesPerOneMillion": 30508,
+  "deathsPerOneMillion": 762,
+  "tests": 6368159,
+  "testsPerOneMillion": 295280,
+  "population": 21566512,
+  "continent": "Asia",
+  "oneCasePerPeople": 33,
+  "oneDeathPerPeople": 1313,
+  "oneTestPerPeople": 3,
+  "activePerOneMillion": 785.62,
+  "recoveredPerOneMillion": 28961.2,
+  "criticalPerOneMillion": 0
+}

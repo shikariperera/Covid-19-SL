@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Page</title>
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+<!-- FontAwesome CDN Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<!-- Boxicons -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+<!-- CSS -->
+<link rel="stylesheet" href="maincss.css">
+
+
+<style>
+    table {
+    width: 90%;
+  margin-bottom: 1rem;
+  margin-top: 20rem;
+}
+
+table, th, td {
+    border: 2px solid dimgray;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+</style>
+
+</head>
+<body>
+
+    <!-- Nav Starts -->
+ <header class="header">
+ 
+<a href="#" class="logo">C <span class="fas fa-virus" style="color:#00acee;"></span> VID-19 SL</a>
+
+<nav class="navbar">
+            
+            
+            <a href="admin.html">Database</a> 
+            <a href= "qrcode.html" >QR Code Generator</a> 
+            <a href= "index.html" >Log Out</a> 
+            
+           
+            
+
+   
+
+     
+  </div> 
+
+     </nav>
+
+     <div id="menu-button" class="fas fa-bars"></div>
+
+</header>
+ 
+<!-- Nav Ends-->
+<div> 
+<table >
+    
+    <thread>
+        <th>No</th>
+        <th>NIC</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone No</th>
+        <th>Mobile No</th>
+        <th>Postal</th>
+        <th>Address</th>
+    </thread>
+    <tbody id="tbody1"></tbody>
+</table>
+</div>
+
+<script type="module">
+ 
+ //-------------TABLE----------//   
+
+var no = 0;
+var tbody = document.getElementById('tbody1');
+ function AddItemToTable(firstname, lastname, gender, email, nic, phone, mobile, postal, address ) {
+    let trow = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+    let td4 = document.createElement("td");
+    let td5 = document.createElement("td");
+    let td6 = document.createElement("td");
+    let td7 = document.createElement("td");
+    let td8 = document.createElement("td");
+    let td9 = document.createElement("td");
+    let td10 = document.createElement("td");
+
+    td1.innerHTML = ++no;
+    td2.innerHTML = nic;
+    td3.innerHTML = firstname;
+    td4.innerHTML = lastname;
+    td5.innerHTML = gender;
+    td6.innerHTML = email;
+    td7.innerHTML = phone;
+    td8.innerHTML = mobile;
+    td9.innerHTML = postal;
+    td10.innerHTML = address;
+
+    trow.appendChild(td1);
+    trow.appendChild(td2);
+    trow.appendChild(td3);
+    trow.appendChild(td4);
+    trow.appendChild(td5);
+    trow.appendChild(td6);
+    trow.appendChild(td7);
+    trow.appendChild(td8);
+    trow.appendChild(td9);
+    trow.appendChild(td10);
+
+    tbody.appendChild(trow);
+
+ }
+
+function AddAllItemsToTable(QrReg){
+
+    no = 0;
+    tbody.innerHTML="";
+    QrReg.forEach(element => {
+   
+   AddItemToTable(element.firstname, element.lastname, element.gender, element.email, element.nic, element.phone, element.mobile, element.postal, element.address);
+
+
+    });
+    }
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAr_7j2_cS50EaK7WfsJa0KKSenV_aLXzU",
+    authDomain: "qr-code-registration-60c0a.firebaseapp.com",
+    databaseURL: "https://qr-code-registration-60c0a-default-rtdb.firebaseio.com",
+    projectId: "qr-code-registration-60c0a",
+    storageBucket: "qr-code-registration-60c0a.appspot.com",
+    messagingSenderId: "867399716997",
+    appId: "1:867399716997:web:c7c23e5409defa145d99ec"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+
+
+    const db = getDatabase();
+
+
+//-------------FETCHING DATA----------// 
+
+function GetAllDataOnce() {
+
+    const dbRef = ref(db);
+
+    get(child(dbRef, "UsersList"))
+    .then((snapshot)=>{
+
+        var qrregs = [];
+        
+        snapshot.forEach(childSnapshot =>{
+         
+         qrregs.push(childSnapshot.val());
+
+        });
+
+        AddAllItemsToTable(qrregs);
+
+    });
+}
+
+//-------------FETCHING DATA IN REAL TIME----------//
+
+function GetAllDataRealtime() {
+
+    const dbRef = ref(db, "UsersList");
+
+     onValue(dbRef, (snapshot) => {
+
+        var qrregs = [];
+        
+        snapshot.forEach(childSnapshot =>{
+         
+         qrregs.push(childSnapshot.val());
+
+        });
+
+        AddAllItemsToTable(qrregs);
+
+     })
+}
+
+window.onload = GetAllDataRealtime;
+
+
+</script>
+
+</body>
+</html>

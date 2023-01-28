@@ -1,0 +1,319 @@
+:root {
+    --bg-body: #fafbfd;
+    --blue-color: #00acee;
+    --bg-information: #ffffff;
+    --bg-hover: #f4f4f4;
+    --color-txt: #172b4d;
+    --shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+    --grey-color: #777;
+    --black-color:#444;
+    --box-shadow:.5rem .5rem 0 rgba(22, 160, 133, .2);
+    --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+    --border:.2rem solid var(--blue-color);
+    
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+body {
+font-family: 'Lato', sans-serif;
+position: relative;
+background-color: var(--bg-body);
+color: var(--color-txt);
+padding-top: calc(var(--navbar-height) + 30px);
+font-size: 16px;
+
+}
+
+
+
+.canister {
+    max-width: 1600px;
+    margin: auto;
+}
+
+.information {
+    padding: 15px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.box {
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--bg-information);
+    box-shadow: var(--shadow);
+    padding: 15px;
+    margin-bottom: 30px;
+     
+
+}
+
+
+
+
+
+
+/* Nav Starts */
+
+
+
+/* Box Starts */
+
+
+ 
+
+.box-head {
+    padding: 10px 0 30px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-txt);
+    position: relative;
+    text-transform: uppercase;
+}
+/* Box Ends */
+
+/* Country Dropdown Starts */
+
+.select-country {
+    position: relative;
+}
+
+.select-country-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: 700;
+    position: relative;
+}
+
+.select-country-list {
+    position: absolute;
+    top: calc(100% + 50px);
+    left: 0;
+    width: 100%;
+    max-height: 600px;
+    overflow-y: scroll;
+    padding: 15px;
+    background-color: var(--bg-information);
+    z-index: 98;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.select-country-list input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #e2e8f0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.select-country-list.active {
+    top: calc(100% + 20px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.country-item {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.country-item:hover {
+    background-color: var(--bg-hover);
+}
+
+/* Country Dropdown Ends */
+
+/* Covid Details Starts*/
+
+.sum {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sum-icon {
+    --width: 70px;
+    width: var(--width);
+    height: var(--width);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    margin-right: 15px;
+}
+
+.sum-info h5 {
+    font-size: 1.5rem;
+}
+
+.sum-info span {
+    display: inherit;
+    margin-top: -2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.sum-confirmed .sum-icon {
+    background-color: #ffa0a0;
+    color: red;
+}
+
+.sum-confirmed .sum-info h5 {
+    color: red;
+}
+
+.sum-recovered .sum-icon {
+    background-color: #bffabf;
+    color: green;
+}
+
+.sum-recovered .sum-info h5 {
+    color: green;
+}
+
+
+.sum-deaths .sum-icon {
+    background-color: #e2e8f0;
+    color: #373c43;
+}
+
+.sum-deaths .sum-info h5 {
+    color: #373c43;
+}
+
+.sum-new-deaths .sum-icon {
+    background-color: #e2e8f0;
+    color: #373c43;
+}
+
+.sum-new-deaths .sum-info h5 {
+    color: #373c43;
+}
+/* Covid Details Ends*/
+
+
+/* Most Affected Table Starts*/
+.countries-table {
+    width: 100%;
+    border-spacing: 0;
+
+    
+}
+
+.countries-table thead tr th,
+.countries-table tbody tr td {
+    border-bottom: 1px solid var(--bg-body);
+}
+
+.countries-table th {
+    padding: 0.5rem;
+}
+
+.countries-table td {
+    font-weight: 0.9rem;
+    padding: 0.5rem;
+    width: 25%;
+    text-align: center;
+}
+
+.countries-table tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+
+/* Most Affected Table Ends*/
+
+/* Loader Starts*/
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--bg-body);
+    font-size: 10rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.loading .loader {
+    visibility: visible;
+    opacity: 1;
+}
+/* Loader Ends*/
+
+/* Media Queries */
+@media (max-width:768px){
+
+    #menu-button{
+        display: initial;
+    }
+
+.header .navbar{
+        position: absolute;
+        top:115%; right: 2rem;
+        border-radius: .5rem;
+        box-shadow: var(--box-shadow);
+        width: 30rem;
+        border: var(--border);
+        background: #fff;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: top right;
+        transition: none;
+    }
+
+.header .navbar.active{
+    transform: scale(1);
+    opacity: 1;
+    transition: .2s ease-out;
+    }
+
+    .header .navbar a{
+        font-size: 2rem;
+        display: block;
+        margin:2.5rem;
+    }
+
+    
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+}
+

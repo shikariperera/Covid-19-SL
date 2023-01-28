@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Covid19-SL Homepage</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+<!-- FontAwesome CDN Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+
+
+<!-- Boxicons -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="maincss.css">
+
+<script
+      class="jsbin"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <script
+      class="jsbin"
+      src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"
+    ></script>
+ 
+
+ 
+</head>
+<body>
+
+    <div class="dig-vaccine">
+    
+    <h3>Registration Form<h3>
+
+    <div class="form">
+       <div class="inputfield">
+          <label>First Name</label>
+          <input type="text" class="input" id = "firstnameImp">
+       </div>  
+      <div class="inputfield">
+          <label>Last Name</label>
+          <input type="text" class="input" id = "lastnameImp">
+       </div>  
+       <div class="inputfield">
+          <label>NIC Number</label>
+          <input type="text" class="input" id = "nicImp">
+       </div>
+       <div class="inputfield">
+          <label>Phone Number</label>
+          <input type="text" class="input" id = "phoneImp">
+       </div>
+       <div class="inputfield">
+          <label>Email Address</label>
+          <input type="text" class="input" id = "emailImp">
+       </div>
+        <div class="inputfield">
+          <label>Gender</label>
+          <input type="text" class="input" id = "genderImp">
+       </div>  
+       <div class="inputfield">
+          <label>Mobile Number</label>
+          <input type="text" class="input" id = "mobileImp">
+       </div> 
+       <div class="inputfield">
+          <label>Postal Code</label>
+          <input type="text" class="input" id = "postalImp">
+       </div>
+      <div class="inputfield">
+          <label>Address</label>
+          <textarea class="textarea" id = "addressImp"></textarea>
+       </div> 
+         
+      
+        
+
+      <div class="inputfield">    
+        <a class="button"id = "sub_btn">Register</a>
+
+      </div>
+    </div>
+</div>
+
+
+
+ 
+ <script type="module">
+  //-------------FIREBASE CONFIGURATION----------//
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+ 
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAr_7j2_cS50EaK7WfsJa0KKSenV_aLXzU",
+    authDomain: "qr-code-registration-60c0a.firebaseapp.com",
+    databaseURL: "https://qr-code-registration-60c0a-default-rtdb.firebaseio.com",
+    projectId: "qr-code-registration-60c0a",
+    storageBucket: "qr-code-registration-60c0a.appspot.com",
+    messagingSenderId: "867399716997",
+    appId: "1:867399716997:web:c7c23e5409defa145d99ec"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+   
+
+  import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+
+
+    const db = getDatabase();
+
+    //-------------REFERENCES----------//
+
+  const firstname = document.getElementById('firstnameImp');
+  const lastname = document.getElementById('lastnameImp');
+  const email = document.getElementById('emailImp');
+  const nic = document.getElementById('nicImp');
+  const phone = document.getElementById('phoneImp');
+  const mobile = document.getElementById('mobileImp');
+  const submit = document.getElementById('sub_btn');
+  const address = document.getElementById('addressImp');
+  const postal = document.getElementById('postalImp');
+  const gender = document.getElementById('genderImp');
+
+//-------------VALIDATION----------//
+  function isEmptyOrSpaces(str){
+    return str === null || str.match(/^ *$/) !== null;
+  }
+
+
+  function Validation(){
+
+    let firstnameregex = /^[a-zA-Z\s]+$/;
+    let lastnameregex = /^[a-zA-Z\s]+$/;
+    let genderregex = /^[a-zA-Z\s]+$/;
+    let postalregex = /^\d{5}$/;
+    let emailregex = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
+    let nicregex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    let phoneregex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    let mobileregex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+    if(isEmptyOrSpaces(firstname.value) || isEmptyOrSpaces(lastname.value) || isEmptyOrSpaces(email.value) || isEmptyOrSpaces(nic.value) || isEmptyOrSpaces(phone.value)){
+      alert("You cannot leave any field empty.");
+        return false;
+    }
+
+    if(!firstnameregex.test(firstname.value)){
+        alert("First Name should only contain alphabets!");
+        return false;
+
+    }
+
+    if(!lastnameregex.test(lastname.value)){
+        alert("Last Name should only contain alphabets!");
+        return false;
+
+    }
+
+    if(!genderregex.test(gender.value)){
+        alert("Gender should only contain alphabets!");
+        return false;
+
+    }
+
+    if(!postalregex.test(postal.value)){
+        alert("Enter a valid Postal Code.");
+        return false;
+
+    }
+
+        if(!emailregex.test(email.value)){
+        alert("Enter a valid email.");
+        return false;
+
+    }
+
+    if(!nicregex.test(nic.value)){
+        alert("Enter a valid NIC.");
+        return false;
+
+    }
+
+    if(!phoneregex.test(phone.value)){
+        alert("Enter a valid Phone Number.");
+        return false;
+
+    }
+
+    if(!mobileregex.test(mobile.value)){
+        alert("Enter a valid Mobile Number.");
+        return false;
+
+    }
+
+    return true;
+}
+
+//-------------REGISTER USER TO FIREBASE----------//
+
+   function RegisterUser(){
+    if(!Validation()){
+        return;
+    };
+    const dbRef = ref(db);
+
+    get(child(dbRef, "UsersList/"+ nic.value)).then((snapshot)=>{
+        if(snapshot.exists()){
+            alert("This NIC is already registered!");
+        }
+
+        else{
+            set(ref(db, "UsersList/"+ nic.value), 
+            {
+
+                firstname: firstname.value,
+                lastname: lastname.value,
+                email: email.value,
+                nic: nic.value,
+                phone: phone.value,
+                mobile: mobile.value,
+                address: address.value,
+                postal: postal.value,
+                gender: gender.value
+                 
+
+            })
+            .then(()=>{
+                alert("You have been registered successfully!");
+                window.location = "thankyouvax.html";
+            })
+            .catch((error)=>{
+                alert("error"+ error);
+            })
+        }
+
+    });
+
+   }
+
+   
+
+   //-------------ASSIGN THE EVENTS----------//
+
+   submit.addEventListener('click', RegisterUser);
+
+
+
+</script>
+</body>
+</html>
+

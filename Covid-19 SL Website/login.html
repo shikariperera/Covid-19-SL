@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+	<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+
+	<!-- CSS -->
+<link rel="stylesheet" href="maincss.css">
+
+<style> body{ 
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+width: 100vw;
+margin: 0px;
+padding-left:  480px;
+
+}
+
+h3 {
+	padding-left:  170px;
+}
+
+</style>
+</head>
+<body>
+
+	<div class= "container">
+		<h3 class= "title">Log In</h3>
+
+		<input type="text" placeholder= "Username" id = "usernameImp" class="box">
+		<input type="text" placeholder= "Password" id = "passwordImp" class="box">
+
+		<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+
+</div>
+
+		<button style="margin-left:  151px;" type="text" id = "sub_btn" class="button" >Log In</button>
+<div class= "badge">
+		<a href="register.html" class="badge-button">Want to create a new account?</a>
+
+    </div>
+	</div>
+
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCTR4lAk_2ZjG5-ICE_C3wW0XFgHUqjlSY",
+    authDomain: "covid-19-login-sign-up-auth.firebaseapp.com",
+    databaseURL: "https://covid-19-login-sign-up-auth-default-rtdb.firebaseio.com",
+    projectId: "covid-19-login-sign-up-auth",
+    storageBucket: "covid-19-login-sign-up-auth.appspot.com",
+    messagingSenderId: "487949567031",
+    appId: "1:487949567031:web:3833285febd477034a2bb2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+  const db = getDatabase();
+
+  //-------------REFERENCES----------//
+  
+  const username = document.getElementById('usernameImp');
+  const password = document.getElementById('passwordImp');
+  const submit = document.getElementById('sub_btn');
+
+  //-------------AUTHENTICATION----------//
+
+  function AuthenticateUser(){
+  	const dbref = ref(db);
+
+  	  get(child(dbref, "UsersList/"+ username.value)).then((snapshot)=>{
+   		if(snapshot.exists()){
+   			alert("Welcome!");
+   			let dbpassword = decPassword(snapshot.val().password);
+   			if (dbpassword == password.value){
+           login(snapshot.val());
+
+   			}
+
+   			else{
+
+   				alert("Username or password is invalid.");
+   			}
+   		}
+
+   		else{
+
+   				alert("Username or password is invalid.");
+   			}
+  		
+   	});
+  }
+
+  //-------------DECRYPTION----------//
+
+    function decPassword(dbpassword){
+   	var password12 = CryptoJS.AES.decrypt(dbpassword, password.value);
+   	return password12.toString(CryptoJS.enc.Utf8);
+   }
+
+   //-------------LOGIN----------//
+
+   function login(user){
+
+   	let keepLoggedIn = document.getElementById('customSwitch1').checked;
+
+   	if(!keepLoggedIn){
+   		sessionStorage.setItem('user', JSON.stringify(user));
+   		window.location = "vaxhome.html";
+   	}
+
+   	else{
+   		localStorage.setItem('keepLoggedIn', 'yes');
+   		localStorage.setItem('user', JSON.stringify(user));
+   		window.location = "vaxhome.html";
+   	}
+
+   }
+
+   //-------------ASSIGN THE EVENTS----------//
+
+   submit.addEventListener('click', AuthenticateUser);
+
+</script>
+
+</body>
+</html>

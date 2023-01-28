@@ -1,0 +1,162 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+font-family: 'Lato', sans-serif;
+
+  
+*{
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+
+ }
+ 
+ body {
+  background-color: white;
+ }
+/* Sri Lanka Stats Section Starts */
+
+.align {
+  display: flex;
+  align-items: center;
+}
+
+.covid_box {
+  background-color: white;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+
+}
+
+.covid_box h3{
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.covid_box h3 img{
+ width: 1.2rem;
+ height: auto;
+}
+
+.full_box {
+  margin-top: 2rem;
+
+}
+ 
+.box {
+   
+  background-color: var(--bg-information);
+  border-radius: 10px;
+  border:var(--border);
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 30px;
+
+}
+
+.box i{
+font-size: 25px;
+width: 60px;
+height: 60px;
+line-height: 60px;
+border-radius: 50%;
+
+
+}
+
+
+
+.box h5{
+    padding: 10px 0 30px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+
+.box span{
+font-size: 2.5rem;
+font-weight: 600;
+
+}
+
+.b1{
+background-color: ;
+margin-left:  23px;
+text-align: center;
+
+}
+.b2{
+background-color: ;
+margin-left:  290px;
+text-align: center;
+}
+
+.b3{
+background-color: ;
+margin-left:  280px; 
+text-align: center;
+   
+}
+
+.b4{
+background-color: ;
+margin-left:  23px;
+text-align: center;
+}
+
+.b5{
+background-color: ;
+margin-left:  290px;
+text-align: center;
+}
+
+.b6{
+background-color: ;
+margin-left:  280px;
+text-align: center;
+}
+
+.b7{
+background-color: ;
+margin-left:  23px;
+text-align: center;
+}
+
+.b8{
+background-color: ;
+margin-left:  290px;
+text-align: center;
+}
+
+.b9{
+background-color: ;
+margin-left:  280px;
+text-align: center;
+}
+
+.b10{
+background-color: ;
+margin-left:  23px;
+text-align: center;
+}
+
+.b11{
+background-color: ;
+margin-left:  290px;
+text-align: center;
+}
+
+.b12{
+background-color: ;
+margin-left:  280px;
+text-align: center;
+}
+
+/* Sri Lanka Stats Section Ends */

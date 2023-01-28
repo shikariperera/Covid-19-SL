@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+
+  <title>COVID-19 SL Website QR Code Generator</title>
+
+  <!-- FontAwesome CDN Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<!-- Boxicons -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- Image -->
+    <link rel="shortcut icon" href="covidicon.png" type="image/png">
+  
+
+<!-- CSS Link -->
+<link rel="stylesheet" href="qrcode.css">
+<link rel="stylesheet" href="maincss.css">
+
+  </head> 
+
+  <body>
+
+    <!-- Nav Starts -->
+ <header class="header">
+ 
+<a href="#" class="logo">C <span class="fas fa-virus" style="color:#00acee;"></span> VID-19 SL</a>
+
+<nav class="navbar">
+            
+            
+            <a href="admin.html">Database</a> 
+            <a href= "qrcode.html" >QR Code Generator</a> 
+            <a href= "index.html" >Log Out</a> 
+            
+           
+            
+
+   
+
+     
+  </div> 
+
+     </nav>
+
+     <div id="menu-button" class="fas fa-bars"></div>
+
+</header>
+ 
+<!-- Nav Ends-->
+    <div id="qr-container">
+      <div id="user-input">
+        <input type="text" id="data" placeholder="Type here.">
+      <div id="hint">Press Enter to Generate</div>
+      </div>
+      <div id="qr-box">
+        <div id="qr">
+    </div>
+  </div>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <!-- JavaScript Link -->
+  <script src="qrcode.js" defer></script>
+  </body>   
+
+  </html>
